@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,16 @@ import { LoadingController } from '@ionic/angular';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public loading: LoadingController) { }
+
+  constructor(public loading: LoadingController, private router: Router) { }
 
   ngOnInit() {
     this.displayLoader()
     .then((loader: any) => {
       loader.dismiss();
     });
+
+
   }
 
   async displayLoader() {
@@ -25,6 +29,12 @@ export class HomeComponent implements OnInit {
     });
     await loading.present();
     return loading;
+  }
+
+  goCategory(type) {
+    console.log('......', type);
+    
+    this.router.navigate(['categories/' + type])
   }
 
 }

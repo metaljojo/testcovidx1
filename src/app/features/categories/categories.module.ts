@@ -1,17 +1,17 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IndexPageRoutingModule } from './index-page.routing';
-import { IndexPageComponent } from './containers/index-page/index-page.component';
+import { CategoriesRoutingModule } from './categories.routing';
+import { CategoriesComponent } from './containers/categories/categories.component';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    IndexPageRoutingModule
+    CategoriesRoutingModule
   ],
-  declarations: [IndexPageComponent],
+  declarations: [CategoriesComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class IndexPageModule { }
+export class CategoriesModule { }

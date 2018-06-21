@@ -1,12 +1,5 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-toggle>
-        <ion-button>
-          <ion-icon slot="icon-only" name="menu"></ion-icon>
-        </ion-button>
-      </ion-menu-toggle>
-    </ion-buttons>
     <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,11 +10,12 @@
   <ion-searchbar
     animated="true"
     show-cancel-button
+    placeholder="Chercher par localité"
     debounce="500">
   </ion-searchbar>
 
   <!-- first card -->
-  <ion-card style="color: white;">
+  <!-- <ion-card style="color: white;" >
     <div style="position: absolute; top: 0; left:0; right:0; bottom:0;">
       <img style="transform: scale(1)" src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=51a9aa4dd828bf5d50fcd8154dc405b8&auto=format&fit=crop&w=1500&q=80">
     </div>
@@ -35,12 +29,15 @@
     </ion-card-header>
 
     <ion-card-content style="padding-top: 100px">
-      <!-- add text: optional-->
+      
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
+
+  <app-cards [title]="'Vélos'" [subtitle]="'equipment d\'été'" [image]="'https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=51a9aa4dd828bf5d50fcd8154dc405b8&auto=format&fit=crop&w=1500&q=80'" (click)="goCategory('bike')"></app-cards>
+  <app-cards [title]="'Skis'" [subtitle]="'equipment d\'hiver'" [image]="'https://images.unsplash.com/photo-1517057011470-8f36d636e6ca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dcecd9ec3b07624dedb0df0c7b3eeee&auto=format&fit=crop&w=1594&q=80'" (click)="goCategory('ski')"></app-cards>
 
   <!-- second card -->
-  <ion-card style="color: white;">
+  <!-- <ion-card style="color: white;">
       <div style="position: absolute; top: 0; left:0; right:0; bottom:0;">
         <img style="transform: scale(1)" src="https://images.unsplash.com/photo-1517057011470-8f36d636e6ca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dcecd9ec3b07624dedb0df0c7b3eeee&auto=format&fit=crop&w=1594&q=80">
       </div>
@@ -54,15 +51,21 @@
       </ion-card-header>
   
       <ion-card-content style="padding-top: 100px">
-        <!-- add text: optional-->
+        
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 
+    
       
   <!-- fab placed to the (vertical) center and end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button color="warning">
       <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="map"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
