@@ -17,6 +17,7 @@ export class MapComponent implements OnInit {
 
   initMap() {
     const POSITION = { lat: this.coords.latitude, lng: this.coords.longitude };
+    
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: POSITION || { lat: 22, lng: 22}
