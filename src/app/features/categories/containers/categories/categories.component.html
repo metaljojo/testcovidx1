@@ -10,8 +10,6 @@
 </ion-header>
 
 <ion-content>
-  
-  {{items|json}}
   <div >
     <app-cards *ngFor="let item of items" [title]="item?.title" [subtitle]="item?.subtitle" [image]="item?.image" (click)="goCategory('bike')"></app-cards>
   </div>

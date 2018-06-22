@@ -6,7 +6,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges } from
   styleUrls: ['./cards.component.css']
 })
 
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnInit, OnChanges {
   @Input() image: string;
   @Input() title: string;
   @Input() subtitle: string;
@@ -14,8 +14,8 @@ export class CardsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges) {
-    const name : SimpleChange = changes.name
+  ngOnChanges (changes: SimpleChanges) {
+    const name: SimpleChange = changes.name;
   }
 
   ngOnInit() {

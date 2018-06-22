@@ -20,23 +20,33 @@ export class CategoriesComponent implements OnInit {
     this.displayLoader()
     .then((loader: any) => {
       loader.dismiss();
-    })
-    const urlParams = this._route.snapshot.params
-    
+    });
+    const urlParams = this._route.snapshot.params;
     const dataBase = {
       categories: {
         bike: [
           {
             title: 'Vélo Homme',
-            subtitle: '',
-            image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=51a9aa4dd828bf5d50fcd8154dc405b8&auto=format&fit=crop&w=1500&q=80'
+            subtitle: 'equipment été',
+            image: 'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?cs=srgb&dl=bicycle-bike-forest-100582.jpg&fm=jpg'
           },
           {
-            title: 'Vélo Femme'
+            title: 'Vélo Femme',
+            subtitle: 'equipment été',
+            image: 'https://images.pexels.com/photos/534150/pexels-photo-534150.jpeg?cs=srgb&dl=bike-city-color-534150.jpg&fm=jpg'
           }
         ],
         ski: [
-          {}
+          {
+            title: 'Skis Homme',
+            subtitle: 'equipment d\'hiver',
+            image: 'https://images.pexels.com/photos/298007/pexels-photo-298007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+          },
+          {
+            title: 'Skis Femme',
+            subtitle: 'equipment d\'hiver',
+            image: 'https://images.pexels.com/photos/848712/pexels-photo-848712.jpeg?cs=srgb&dl=cold-daylight-enjoyment-848712.jpg&fm=jpg'
+          }
         ]
       }
     };
