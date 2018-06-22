@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MapPlaceModalComponent } from '../map-place-modal/map-place-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +11,17 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
 
-  constructor(public loading: LoadingController, private router: Router) { }
+  constructor(
+    public loading: LoadingController, 
+    private router: Router,
+    private _modalController: ModalController
+  ) { }
 
   ngOnInit() {
     this.displayLoader()
     .then((loader: any) => {
       loader.dismiss();
     });
-
-
   }
 
   async displayLoader() {
@@ -33,8 +36,17 @@ export class HomeComponent implements OnInit {
 
   goCategory(type) {
     console.log('......', type);
-    
     this.router.navigate(['categories/' + type])
   }
 
+  async goMap() {
+    const modal = await this._modalController.create({
+      component: MapPlaceModalComponent,
+      componentProps: { value: 123}
+    });
+    
+    return await modal.present();
+  }
+
+  
 }

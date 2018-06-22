@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -6,17 +6,13 @@ import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges } from
   styleUrls: ['./cards.component.css']
 })
 
-export class CardsComponent implements OnInit, OnChanges {
+export class CardsComponent implements OnInit {
   @Input() image: string;
   @Input() title: string;
   @Input() subtitle: string;
   @Input() categories: {title: string}[];
 
   constructor() { }
-
-  ngOnChanges (changes: SimpleChanges) {
-    const name: SimpleChange = changes.name;
-  }
 
   ngOnInit() {
   }
