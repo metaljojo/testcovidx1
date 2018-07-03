@@ -1,5 +1,7 @@
 {
   "name": "win-sum",
   "type": "angular",
-  "integrations": {}
+  "integrations": {},
+  "app_id": "",
+  "hooks": {}
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenPayload, AuthenticationService } from '../../../../shared/services/authentication/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  credentials: TokenPayload = {
+    name: '',
+    email: '',
+    password: ''
+  };
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
+  }
+
+  register() {
+    this.auth.register(this.credentials).subscribe(() => {
+      console.log(this.credentials)
+    }, (err) => {
+      console.log(err);
+    })
   }
 
 }
