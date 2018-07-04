@@ -5,6 +5,8 @@ import { ProfileRoutingModule } from './profile.routing';
 import { ProfileComponent } from './containers/profile/profile.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './containers/login/login.component';
+import { RegisterComponent } from './containers/register/register.component';
 
 @NgModule({
   imports: [
@@ -13,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     ProfileRoutingModule,
     FormsModule
   ],
-  declarations: [ProfileComponent],
+  entryComponents: [RegisterComponent],
+  declarations: [ProfileComponent, LoginComponent, RegisterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProfileModule { }

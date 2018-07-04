@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenPayload, AuthenticationService } from '../../../../shared/services/authentication/authentication.service';
+import { LoadingController, ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-profile',
@@ -7,23 +9,23 @@ import { TokenPayload, AuthenticationService } from '../../../../shared/services
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  credentials: TokenPayload = {
-    name: '',
-    email: '',
-    password: ''
-  };
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(
+    public loading: LoadingController,
+    private router: Router,
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
   }
 
-  register() {
-    this.auth.register(this.credentials).subscribe(() => {
-      console.log(this.credentials)
-    }, (err) => {
-      console.log(err);
-    })
+  async goRegister() {
+    const modal = await this.modalController.create({
+      component: RegisterComponent,
+      componentProps: { value: 123}
+    });
+    console.log(':::opening modal...')
+    return await modal.present();
   }
 
 }
