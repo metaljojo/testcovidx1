@@ -15,7 +15,7 @@ import { RegisterComponent } from './containers/register/register.component';
     ProfileRoutingModule,
     FormsModule
   ],
-  entryComponents: [RegisterComponent],
+  entryComponents: [RegisterComponent, LoginComponent],
   declarations: [ProfileComponent, LoginComponent, RegisterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

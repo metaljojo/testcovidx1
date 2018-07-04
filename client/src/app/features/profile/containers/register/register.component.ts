@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, TokenPayload } from '../../../../shared/services/authentication/authentication.service';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,9 +13,13 @@ export class RegisterComponent implements OnInit {
     name: '',
     email: '',
     password: ''
-  }
+  };
 
-  constructor(private auth: AuthenticationService, private _modalCtrl: ModalController) { }
+  constructor(
+    private auth: AuthenticationService,
+    private _modalCtrl: ModalController,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -26,10 +31,11 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.auth.register(this.credentials).subscribe(() => {
-      console.log(this.credentials)
+      this._modalCtrl.dismiss('toto');
+      console.log(this.credentials);
     }, (err) => {
       console.log(err);
-    })
+    });
   }
 
 }

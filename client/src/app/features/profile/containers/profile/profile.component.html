@@ -1,27 +1,47 @@
 <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-toggle>
-          <ion-button (click)="dismiss()">
-            <ion-icon slot="icon-only" name="menu"></ion-icon>
-          </ion-button>
-        </ion-menu-toggle>
-      </ion-buttons>
-      <ion-title>Profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="secondary">
+      <ion-button class="closeButton" fill="clear">
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+      <ion-button fill="solid">
+        Name
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content>
+<ion-content id="content">
+  <ion-card *ngIf="!auth.isLoggedIn()" (click)="goLogin()">
+    <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>Login</ion-label>
+    </ion-item>
+  </ion-card>
+  <p *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></p>
+  <ion-button *ngIf="auth.isLoggedIn()" (click)="auth.logout()">Logout</ion-button>
 
-      <ion-item>
-          <ion-avatar slot="end">
-            <img src="https://images.unsplash.com/photo-1511125357779-27038c647d9d?auto=format&fit=crop&w=1951&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
-          </ion-avatar>
-          <ion-label>Wide Avatar</ion-label>
-        </ion-item>
+  <ion-card *ngIf="auth.isLoggedIn()">
+    <h1>Your profile</h1>
+    
+    <label>Full name</label>
+    <p>{{ details?.name }}</p>
+    <label>Email</label>
+    <p>{{ details?.email }}</p>
+  </ion-card>
+</ion-content>
 
-  </ion-content>
 
-  <ion-button (click)="goRegister()">
-      Register
-  </ion-button>
+    
+ 
+
+
+
+<!-- <ion-content padding>
+
+</ion-content> -->
+
+<ion-button expand="full" (click)="goRegister()">
+  Register
+</ion-button>

@@ -4,6 +4,7 @@ import { CardsComponent } from './components/cards/cards.component';
 import { MapComponent } from './components/map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication/authentication.service';
+import { AuthGuardService } from './services/authentication/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { AuthenticationService } from './services/authentication/authentication.
   declarations: [CardsComponent, MapComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [CardsComponent, MapComponent, HttpClientModule],
-  providers: [AuthenticationService]
+  providers: [AuthenticationService, AuthGuardService]
 })
 export class SharedModule { }

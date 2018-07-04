@@ -2,15 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
+export interface UserDetails {
+  _id: string;
+  email: string;
+  name: string;
+  exp: number;
+  iat: number;
+}
 
 interface TokenResponse {
-  token: string
+  token: string;
 }
 
 export interface TokenPayload {
   name?: string;
-  email: string,
-  password: string
+  email: string;
+  password: string;
 }
 
 @Injectable({
@@ -19,7 +28,7 @@ export interface TokenPayload {
 export class AuthenticationService {
   private token;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   private saveToken(token: string): void {
     localStorage.setItem('mean-token', token);
@@ -33,7 +42,28 @@ export class AuthenticationService {
     return this.token;
   }
 
-  private request(method: 'post'|'get', type: 'register'|'users/profile', user?: TokenPayload): Observable<any> {
+  public getUserDetails(): UserDetails {
+    const token = this.getToken();
+    let payload;
+    if (token) {
+      payload = token.split('.')[1];
+      payload = window.atob(payload);
+      return JSON.parse(payload);
+    } else {
+      return null;
+    }
+  }
+
+  public isLoggedIn(): boolean {
+    const user = this.getUserDetails();
+    if (user) {
+      return user.exp > Date.now() / 1000;
+    } else {
+      return false;
+    }
+  }
+
+  private request(method: 'post'|'get', type: 'login'|'register'|'users/profile', user?: TokenPayload): Observable<any> {
     let base;
     if (method === 'post') {
       base = this.http.post(`/api/${type}`, user);
@@ -53,6 +83,20 @@ export class AuthenticationService {
   }
 
   public register(user: TokenPayload): Observable<any> {
-    return this.request('post', 'register', user)
+    return this.request('post', 'register', user);
+  }
+
+  public login(user: TokenPayload): Observable<any> {
+    return this.request('post', 'login', user);
+  }
+
+  public profile(): Observable<any> {
+    return this.request('get', 'users/profile');
+  }
+
+  public logout(): void {
+    this.token = '';
+    window.localStorage.removeItem('mean-token');
+    this.router.navigateByUrl('/profile');
   }
  }
