@@ -24,8 +24,8 @@ export class MapPlaceModalComponent implements OnInit {
     // declancher Capacitor
     // checcher la currentPos
     // si elle exisit
-    const POSITION = this.getCurrentPosition()
-    this.coords$ = POSITION 
+    const POSITION = this.getCurrentPosition();
+    this.coords$ = POSITION;
   }
 
   dismiss() {
