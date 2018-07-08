@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { TokenPayload, AuthenticationService, UserDetails } from '../../../../shared/services/authentication/authentication.service';
+import { TokenPayload, AuthenticationService } from '../../../../shared/services/authentication/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
