@@ -5,14 +5,18 @@ const router = express.Router();
 const Products = require('../../models/Products');
 
 router.get('/', (req, res, next) => {
-    res.send('products works');
+    Products.find().catch(next).then(result => res.send(result));
 });
 
 router.post('/add', (req, res) => {
     const newProduct = new Products({
-        _id: req.body._id,
+        author: req.body.author,
         title: req.body.title,
-        author: req.body.author
+        price: req.body.price,
+        type: req.body.type,
+        images: req.body.images,
+        size: req.body.size,
+        disc: req.body.disc
     });
     newProduct.save().then(product => {
         res.status(200).json({success: 'product added with success ', product})

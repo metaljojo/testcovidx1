@@ -1,27 +1,33 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const ProductsSchema = new mongoose.Schema({
-    _id: {
-        type: Number
+const ProductsSchema = new Schema({
+    author: {
+        type: String,
+        required: true
     },
     title: {
         type: String,
         required: true
     },
-    // images: {
-    //     data: Buffer,
-    //     contentType: String
-    // },
-    // author: [
-    //     {
-    //         name: {
-    //             type: String
-    //         },
-    //         email: {
-    //             type: String
-    //         }
-    //     }
-    // ],
+    type: {
+        type: String
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    images: {
+        type: [String]
+    },
+    properties: { 
+        size: {
+            type: String
+        },
+        disc: {
+            type: String
+        } 
+    },
     date: {
         type: Date,
         default: Date.now()
