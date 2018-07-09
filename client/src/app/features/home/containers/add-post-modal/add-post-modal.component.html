@@ -10,16 +10,67 @@
 </ion-header>
 
 <ion-content id="content">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Card Title</ion-card-title>
+    </ion-card-header>
 
-      <ion-card-content>
-          <ion-button color="primary">
-              <ion-icon name="add"></ion-icon>
-            </ion-button>
-      </ion-card-content>
-    </ion-card>
-  </ion-content>
+    <ion-card-content>
+      <ion-button color="primary">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item id="custom">
+    <ion-label position="stacked">Title</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="Add a title"
+      value=""
+      [(ngModel)]="creds.title">
+    </ion-input>
+  </ion-item>
+
+  <!-- [(ngModel)]="credentials.email" -->
+
+  <ion-item id="custom">
+    <ion-label position="stacked">Description</ion-label>
+    <ion-textarea
+      id="input2"
+      type="text"
+      placeholder="Add a description"
+      value=""
+      [(ngModel)]="creds.description">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-item id="custom">
+    <ion-label position="stacked">Price</ion-label>
+    <ion-input
+      id="input2"
+      type="number"
+      placeholder="CHF"
+      value=""
+      [(ngModel)]="creds.price">
+    </ion-input>
+  </ion-item>
+
+  <ion-item id="custom">
+    <ion-label position="stacked">Type</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="Ex: VTT, VTC"
+      value=""
+      [(ngModel)]="creds.type">
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="addPost()">
+    Submit
+  </ion-button>
+</ion-content>
+

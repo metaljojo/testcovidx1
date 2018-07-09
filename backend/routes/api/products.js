@@ -23,6 +23,8 @@ router.post('/add', (req, res) => {
         res.status(200).json({success: 'product added with success ', product})
     })
     .catch(err => {
+        console.log(err);
+        
         res.status(400).send('coudnt add the products')
     })
 });

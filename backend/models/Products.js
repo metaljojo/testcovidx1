@@ -2,9 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProductsSchema = new Schema({
+    products_owner_id: {
+        type: Schema.Types.ObjectId
+    },
     author: {
         type: String,
-        required: true
+        required: false
     },
     title: {
         type: String,

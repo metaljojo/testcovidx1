@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { UserDetails, AuthenticationService } from '../../../../shared/services/authentication/authentication.service';
 import { LoginComponent } from '../login/login.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,8 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  details: UserDetails;
+  details: Observable <UserDetails>;
+  modal: HTMLIonModalElement;
 
   constructor(
     private auth: AuthenticationService,
@@ -21,13 +23,11 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.auth.profile().subscribe(user => {
-      this.details = user;
-    }, (err) => {
-      console.error(err);
-    });
+    this.init();
   }
-
+  init() {
+    this.details = this.auth.profile();
+  }
   async goRegister() {
     const modal = await this.modalController.create({
       component: RegisterComponent,
@@ -38,12 +38,13 @@ export class ProfileComponent implements OnInit {
   }
 
   async goLogin() {
-    const modal = await this.modalController.create({
+    this.modal = await this.modalController.create({
       component: LoginComponent,
       componentProps: { value: 123}
     });
+    this.modal.onDidDismiss(_ => this.init());
     console.log(':::opening modal...');
-    return await modal.present();
+    return await this.modal.present();
   }
 
 }

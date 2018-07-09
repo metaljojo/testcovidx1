@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 export interface UserDetails {
-  _id: string;
   email: string;
   name: string;
   exp: number;
@@ -20,6 +19,13 @@ export interface TokenPayload {
   name?: string;
   email: string;
   password: string;
+}
+
+export interface AddPost {
+  title: string;
+  description: string;
+  price: number;
+  type: string;
 }
 
 @Injectable({
@@ -99,4 +105,10 @@ export class AuthenticationService {
     window.localStorage.removeItem('mean-token');
     this.router.navigateByUrl('/profile');
   }
+
+  public addPost(post: AddPost): Observable<any> {
+    return this.http.post('api/products/add', post);
+  }
+
+
  }

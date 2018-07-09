@@ -27,9 +27,9 @@
     <h1>Your profile</h1>
     
     <label>Full name</label>
-    <p>{{ details?.name }}</p>
+    <p>{{ (details | async)?.name}}</p>
     <label>Email</label>
-    <p>{{ details?.email }}</p>
+    <p>{{ (details | async)?.email }}</p>
   </ion-card>
   
 </ion-content>
