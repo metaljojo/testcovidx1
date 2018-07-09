@@ -24,6 +24,17 @@
   </ion-card>
 
   <ion-item id="custom">
+    <ion-label position="stacked">Author</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="Author of post"
+      value=""
+      [(ngModel)]="creds.author">
+    </ion-input>
+  </ion-item>
+
+  <ion-item id="custom">
     <ion-label position="stacked">Title</ion-label>
     <ion-input
       id="input2"
@@ -69,7 +80,7 @@
     </ion-input>
   </ion-item>
 
-  <ion-button expand="block" (click)="addPost()">
+  <ion-button expand="full" (click)="addPost()">
     Submit
   </ion-button>
 </ion-content>

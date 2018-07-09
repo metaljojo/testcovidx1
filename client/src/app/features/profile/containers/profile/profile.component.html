@@ -14,12 +14,26 @@
 
 <ion-content id="content">
 
-  <ion-card *ngIf="!auth.isLoggedIn()" (click)="goLogin()">
-    <ion-item>
-      <ion-icon name="person" slot="start"></ion-icon>
-      <ion-label>Login</ion-label>
-    </ion-item>
-  </ion-card>
+<ion-card *ngIf="!auth.isLoggedIn()" style="min-height: 300px">
+  <div style="position: absolute; top: 0; left:0; right:0; bottom:0;">
+    <img style="transform: rotate(145deg) scale(1.5)" src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-0.3.5&s=a74bf61666c5e84b8cd8687ff8f4fa27&auto=format&fit=crop&w=1567&q=80">
+  </div>
+  <ion-card-header>
+    <ion-card-title>Welcome in WinSum</ion-card-title>
+    <ion-card-subtitle>Please, Login or Register</ion-card-subtitle>
+  </ion-card-header>
+
+  
+  <ion-card-content>
+    <ion-button color="primary" (click)="goLogin()">
+        <ion-icon name="person" slot="start"></ion-icon>Login
+    </ion-button>
+    <ion-button color="primary" (click)="goRegister()">
+        <ion-icon name="add-circle" slot="start"></ion-icon>Register
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
   <p *ngIf="auth.isLoggedIn()">{{ auth.getUserDetails()?.name }}</p>
   <ion-button *ngIf="auth.isLoggedIn()" (click)="auth.logout()">Logout</ion-button>
 
@@ -33,17 +47,3 @@
   </ion-card>
   
 </ion-content>
-
-
-    
- 
-
-
-
-<!-- <ion-content padding>
-
-</ion-content> -->
-
-<ion-button expand="full" (click)="goRegister()">
-  Register
-</ion-button>

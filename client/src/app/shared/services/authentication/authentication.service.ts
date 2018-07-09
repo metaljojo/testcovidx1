@@ -22,6 +22,7 @@ export interface TokenPayload {
 }
 
 export interface AddPost {
+  author: string;
   title: string;
   description: string;
   price: number;
