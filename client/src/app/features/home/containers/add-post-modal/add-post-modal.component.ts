@@ -9,13 +9,14 @@ import { AuthenticationService, AddPost } from '../../../../shared/services/auth
 })
 export class AddPostModalComponent implements OnInit {
   creds: AddPost = {
+    category: '',
     author: '',
     title: '',
-    bike: '',
-    skis: '',
     description: '',
     price: <any>[],
-    type: ''
+    type: '',
+    size: '',
+    disc: ''
   };
 
   constructor(

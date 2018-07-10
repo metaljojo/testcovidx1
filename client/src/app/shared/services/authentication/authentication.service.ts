@@ -22,13 +22,14 @@ export interface TokenPayload {
 }
 
 export interface AddPost {
+  category: string;
   author: string;
   title: string;
-  bike: string;
-  skis: string;
   description: string;
   price: number;
   type: string;
+  size: string;
+  disc: string;
 }
 
 @Injectable({

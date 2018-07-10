@@ -24,6 +24,17 @@
   </ion-card>
 
   <ion-item id="custom">
+    <ion-label position="stacked">Category</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="Ex: Vélo, Skis"
+      value=""
+      [(ngModel)]="creds.category">
+    </ion-input>
+  </ion-item>
+
+  <ion-item id="custom">
     <ion-label position="stacked">Author</ion-label>
     <ion-input
       id="input2"
@@ -46,8 +57,6 @@
   </ion-item>
 
   <!-- [(ngModel)]="credentials.email" -->
-
-  
 
   <ion-item id="custom">
     <ion-label position="stacked">Description</ion-label>
@@ -82,12 +91,26 @@
     </ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label>Categorie</ion-label>
-    <ion-select id="hairColor" ok-text="Okay" cancel-text="Dismiss">
-      <ion-select-option >Vélo</ion-select-option>
-      <ion-select-option >Ski</ion-select-option>
-    </ion-select>
+  <ion-item id="custom">
+    <ion-label position="stacked">Size</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="Ex: medium, small"
+      value=""
+      [(ngModel)]="creds.size">
+    </ion-input>
+  </ion-item>
+
+  <ion-item id="custom">
+    <ion-label position="stacked">Disc</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="yes, no, platinum, metal"
+      value=""
+      [(ngModel)]="creds.disc">
+    </ion-input>
   </ion-item>
 
   <ion-button expand="full" (click)="addPost()">

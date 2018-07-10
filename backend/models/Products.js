@@ -6,42 +6,40 @@ const ProductsSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
+    category: {
+        type: String,
+        required: true
+    },
+    properties: {
+        size: {
+            type: String
+        },
+        disc: {
+            type: String
+        }
+    },
     author: {
         type: String,
-        required: false
+        required: true
     },
     title: {
         type: String,
         required: true
     },
-    bike: {
-        type: String
-    },
-    skis: {
-        type: String
-    },
     description: {
         type: String,
         required: true
-    },
-    type: {
-        type: String
     },
     price: {
         type: Number,
         required: true
     },
+    type: {
+        type: String
+    },
     images: {
         type: [String]
     },
-    // properties: { 
-    //     size: {
-    //         type: String
-    //     },
-    //     disc: {
-    //         type: String
-    //     } 
-    // },
     date: {
         type: Date,
         default: Date.now()
