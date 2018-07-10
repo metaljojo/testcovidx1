@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const ProductsSchema = new Schema({
     products_owner_id: {
-        type: Schema.Types.ObjectId
+        type: Schema.Types.ObjectId,
+        ref: 'users'
     },
     author: {
         type: String,
@@ -12,6 +13,12 @@ const ProductsSchema = new Schema({
     title: {
         type: String,
         required: true
+    },
+    bike: {
+        type: String
+    },
+    skis: {
+        type: String
     },
     description: {
         type: String,
@@ -27,14 +34,14 @@ const ProductsSchema = new Schema({
     images: {
         type: [String]
     },
-    properties: { 
-        size: {
-            type: String
-        },
-        disc: {
-            type: String
-        } 
-    },
+    // properties: { 
+    //     size: {
+    //         type: String
+    //     },
+    //     disc: {
+    //         type: String
+    //     } 
+    // },
     date: {
         type: Date,
         default: Date.now()

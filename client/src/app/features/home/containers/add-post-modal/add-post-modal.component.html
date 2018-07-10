@@ -47,6 +47,8 @@
 
   <!-- [(ngModel)]="credentials.email" -->
 
+  
+
   <ion-item id="custom">
     <ion-label position="stacked">Description</ion-label>
     <ion-textarea
@@ -80,8 +82,17 @@
     </ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label>Categorie</ion-label>
+    <ion-select id="hairColor" ok-text="Okay" cancel-text="Dismiss">
+      <ion-select-option >Vélo</ion-select-option>
+      <ion-select-option >Ski</ion-select-option>
+    </ion-select>
+  </ion-item>
+
   <ion-button expand="full" (click)="addPost()">
     Submit
   </ion-button>
 </ion-content>
+
 

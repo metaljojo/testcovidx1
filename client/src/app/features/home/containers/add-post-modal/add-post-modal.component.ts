@@ -11,6 +11,8 @@ export class AddPostModalComponent implements OnInit {
   creds: AddPost = {
     author: '',
     title: '',
+    bike: '',
+    skis: '',
     description: '',
     price: <any>[],
     type: ''

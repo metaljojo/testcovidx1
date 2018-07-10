@@ -18,24 +18,31 @@
   
   <ion-card-content>
     <ion-button color="primary" (click)="goLogin()">
-        <ion-icon name="person" slot="start"></ion-icon>Login
+      <ion-icon name="person" slot="start"></ion-icon>Login
     </ion-button>
     <ion-button color="primary" (click)="goRegister()">
-        <ion-icon name="create" slot="start"></ion-icon>Register
+      <ion-icon name="create" slot="start"></ion-icon>Register
     </ion-button>
   </ion-card-content>
 </ion-card>
 
-  <p *ngIf="auth.isLoggedIn()">{{ auth.getUserDetails()?.name }}</p>
-  <ion-button *ngIf="auth.isLoggedIn()" (click)="auth.logout()">Logout</ion-button>
+<!-- logout card -->
+<ion-card *ngIf="auth.isLoggedIn()" style="min-height: 300px">
+  <div style="position: absolute; top: 0; left:0; right:0; bottom:0;">
+    <img style="transform: rotate(145deg) scale(1.5)" src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-0.3.5&s=a74bf61666c5e84b8cd8687ff8f4fa27&auto=format&fit=crop&w=1567&q=80">
+  </div>
+  <ion-card-header>
+    <p *ngIf="auth.isLoggedIn()">{{ auth.getUserDetails()?.name }}</p>
+    <ion-card-title>Hello, {{ (details | async)?.name}}</ion-card-title>
+    <ion-card-subtitle>Your email is {{ (details | async)?.email }}</ion-card-subtitle>
+  </ion-card-header>
 
-  <ion-card *ngIf="auth.isLoggedIn()">
-    <h1>Your profile</h1>
-    
-    <label>Full name</label>
-    <p>{{ (details | async)?.name}}</p>
-    <label>Email</label>
-    <p>{{ (details | async)?.email }}</p>
-  </ion-card>
+  <ion-card-content>
+    <ion-button color="primary" (click)="auth.logout()">
+      <ion-icon name="person" slot="start"></ion-icon>Logout
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+<!-- end of logout card -->
   
 </ion-content>

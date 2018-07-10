@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-        <ion-button (click)="goBack()">
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>Vélos - Categories</ion-title>
   </ion-toolbar>
@@ -13,5 +13,4 @@
   <div >
     <app-cards *ngFor="let item of items" [title]="item?.title" [subtitle]="item?.subtitle" [image]="item?.image" (click)="goCategory('bike')"></app-cards>
   </div>
-
 </ion-content>

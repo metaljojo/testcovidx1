@@ -24,6 +24,8 @@ export interface TokenPayload {
 export interface AddPost {
   author: string;
   title: string;
+  bike: string;
+  skis: string;
   description: string;
   price: number;
   type: string;
@@ -104,12 +106,11 @@ export class AuthenticationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/profile');
+    this.router.navigate(['/tabs/(four:four)']);
   }
 
   public addPost(post: AddPost): Observable<any> {
     return this.http.post('api/products/add', post);
   }
 
-
- }
+}
