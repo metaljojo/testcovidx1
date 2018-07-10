@@ -8,6 +8,7 @@ import { AuthenticationService, AddPost } from '../../../../shared/services/auth
   styleUrls: ['./add-post-modal.component.css']
 })
 export class AddPostModalComponent implements OnInit {
+
   creds: AddPost = {
     category: '',
     author: '',
