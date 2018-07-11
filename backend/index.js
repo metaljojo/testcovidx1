@@ -16,11 +16,13 @@ app.use(cors());
 app.use(logger('dev'));
 
 // MongoDB config
-const DB = require('./config/keys').mongoURI;
+
+app.locals.config = require(`./config/${process.env.NODE_ENV}`);
+const dbname = app.locals.config.mongodb.database;
 // DB Conncetion
 mongoose
-    .connect(DB)
-    .then(() => console.log('MongoDB connected...'))
+    .connect(dbname)
+    .then(() => console.log(`NODE_ENV=${process.env.NODE_ENV}, connecting to ${dbname}`))
     .catch(err => console.log(err));
 
 // Use route index

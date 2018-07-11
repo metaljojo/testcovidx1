@@ -1,0 +1,8 @@
+{
+    "server": {
+        "port": 3000
+    },
+    "mongodb": {
+        "database": "mongodb://daniellaera:daniel123456@ds135061.mlab.com:35061/winsum-production"
+    }
+}

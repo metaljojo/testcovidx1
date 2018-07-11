@@ -1,0 +1,9 @@
+{
+    "server": {
+        "port": 3000
+    },
+    "mongodb": {
+        "database": "mongodb://daniel:daniel12345@ds125181.mlab.com:25181/winsum-server",
+        "secretOrKey": "secret"
+    }
+}

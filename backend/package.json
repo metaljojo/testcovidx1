@@ -4,7 +4,8 @@
   "description": "win-sum app backend server",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./bin/www",
+    "start": "NODE_ENV=production node ./bin/www",
+    "dev": "NODE_ENV=development node ./bin/www ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniel Laera",
