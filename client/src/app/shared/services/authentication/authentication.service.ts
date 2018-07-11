@@ -27,6 +27,7 @@ export interface AddPost {
   title: string;
   description: string;
   price: number;
+  priceType: string;
   type: string;
   size: string;
   disc: string;

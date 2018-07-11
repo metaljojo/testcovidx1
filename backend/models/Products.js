@@ -10,14 +10,6 @@ const ProductsSchema = new Schema({
         type: String,
         required: true
     },
-    properties: {
-        size: {
-            type: String
-        },
-        disc: {
-            type: String
-        }
-    },
     author: {
         type: String,
         required: true
@@ -34,11 +26,23 @@ const ProductsSchema = new Schema({
         type: Number,
         required: true
     },
+    priceType: {
+        type: String,
+        required: true
+    },
     type: {
         type: String
     },
     images: {
         type: [String]
+    },
+    properties: {
+        size: {
+            type: String
+        },
+        disc: {
+            type: String
+        }
     },
     date: {
         type: Date,

@@ -12,25 +12,45 @@
 <ion-content id="content">
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Add Picture</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-button color="primary">
-        <ion-icon name="add"></ion-icon>
+      <img *ngIf="img" src="{{img}}" alt="">
+      <ion-button color="primary" (click)="startCamera()">
+        <ion-icon name="camera"></ion-icon>Take
       </ion-button>
+      <ion-button *ngIf="cameraPlugin?.img?.src" (click)="savePicture()">SAVE PICTURE</ion-button>
     </ion-card-content>
   </ion-card>
+  
+  <ion-item>
+    <ion-label>Category</ion-label>
+    <ion-select [interfaceOptions]="customPopoverOptions" interface="action-sheet" [(ngModel)]="creds.category" id="props" multiple="false" cancel-text="Cancel" ok-text="Okay!">
+      <ion-select-option value="bike">Bike</ion-select-option>
+      <ion-select-option value="skis">Skis</ion-select-option>
+    </ion-select>
+  </ion-item>
 
   <ion-item id="custom">
-    <ion-label position="stacked">Category</ion-label>
+    <ion-label position="stacked">Type</ion-label>
     <ion-input
       id="input2"
       type="text"
-      placeholder="Ex: Vélo, Skis"
+      placeholder="Ex: VTT, VTC"
       value=""
-      [(ngModel)]="creds.category">
+      [(ngModel)]="creds.type">
+    </ion-input>
+  </ion-item>
+  
+  <ion-item id="custom">
+    <ion-label position="stacked">Type</ion-label>
+    <ion-input
+      id="input2"
+      type="text"
+      placeholder="Ex: Alpin, Piste"
+      value=""
+      [(ngModel)]="creds.type">
     </ion-input>
   </ion-item>
 
@@ -80,20 +100,17 @@
     </ion-input>
   </ion-item>
 
-  <ion-item id="custom">
-    <ion-label position="stacked">Type</ion-label>
-    <ion-input
-      id="input2"
-      type="text"
-      placeholder="Ex: VTT, VTC"
-      value=""
-      [(ngModel)]="creds.type">
-    </ion-input>
+  <ion-item>
+    <ion-label>Price Type</ion-label>
+    <ion-select [(ngModel)]="creds.priceType" id="props" multiple="false" cancel-text="Cancel" ok-text="Okay!">
+      <ion-select-option value="fixed">Fixed</ion-select-option>
+      <ion-select-option value="todiscuss">To Discuss</ion-select-option>
+    </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label>Size</ion-label>
-    <ion-select [(ngModel)]="creds.size" id="props" multiple="true" cancel-text="Nah" ok-text="Okay!">
+    <ion-select [(ngModel)]="creds.size" id="props" multiple="false" cancel-text="Cancel" ok-text="Okay!">
       <ion-select-option value="small">Small</ion-select-option>
       <ion-select-option value="medium">Medium</ion-select-option>
       <ion-select-option value="big">Big</ion-select-option>
@@ -101,10 +118,11 @@
   </ion-item>
   <ion-item>
     <ion-label>Disc</ion-label>
-    <ion-select [(ngModel)]="creds.disc" id="props" multiple="true" cancel-text="Nah" ok-text="Okay!">
+    <ion-select [(ngModel)]="creds.disc" id="props" multiple="false" cancel-text="Cancel" ok-text="Okay!">
       <ion-select-option value="platinum">Platinum</ion-select-option>
       <ion-select-option value="metal">Metal</ion-select-option>
       <ion-select-option value="carbonium">Carbonium</ion-select-option>
+      <ion-select-option value="none">No</ion-select-option>
     </ion-select>
   </ion-item>
 
