@@ -34,7 +34,7 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 
 app.get('/', (req, res) => {
-    res.send('Bonjour world');
+    res.send('Hello world!');
 });
 
 module.exports = app;
