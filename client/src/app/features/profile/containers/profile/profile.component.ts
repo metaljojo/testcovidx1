@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   modal: HTMLIonModalElement;
 
   constructor(
-    private auth: AuthenticationService,
+    public auth: AuthenticationService,
     public loading: LoadingController,
     private router: Router,
     private modalController: ModalController

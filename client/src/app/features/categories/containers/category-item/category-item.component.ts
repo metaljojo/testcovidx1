@@ -45,4 +45,8 @@ export class CategoryItemComponent implements OnInit {
     this.catItems = itemDataBase.categoryItems[urlParams.type];
   }
 
+  goBack() {
+    this.router.navigate(['/tabs/(one:one)']);
+  }
+
 }
