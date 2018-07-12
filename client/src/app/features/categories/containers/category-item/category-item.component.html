@@ -11,6 +11,6 @@
 
 <ion-content>
   <div >
-    <app-cards *ngFor="let item of items" [title]="item?.title" [subtitle]="item?.subtitle" [image]="item?.image" (click)="goItem(cat)"></app-cards>
+    <app-cards *ngFor="let catItem of catItems" [title]="catItem?.title" [subtitle]="catItem?.subtitle" [image]="catItem?.image" ></app-cards>
   </div>
 </ion-content>

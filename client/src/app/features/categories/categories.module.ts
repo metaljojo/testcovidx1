@@ -5,6 +5,7 @@ import { CategoriesRoutingModule } from './categories.routing';
 import { CategoriesComponent } from './containers/categories/categories.component';
 import { IonicModule } from '@ionic/angular';
 import { SharedModule } from '../../shared/shared.module';
+import { CategoryItemComponent } from './containers/category-item/category-item.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { SharedModule } from '../../shared/shared.module';
     SharedModule,
     CategoriesRoutingModule
   ],
-  declarations: [CategoriesComponent],
+  declarations: [CategoriesComponent, CategoryItemComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CategoriesModule { }

@@ -64,6 +64,11 @@ export class CategoriesComponent implements OnInit {
     return loading;
   }
 
+  goItem(cat) {
+    console.log('......', cat);
+    this.router.navigate(['cat/' + cat]);
+  }
+
   goBack() {
     this.router.navigate(['/tabs/(one:one)']);
   }
