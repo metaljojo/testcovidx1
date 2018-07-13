@@ -112,7 +112,7 @@ export class AuthenticationService {
   }
 
   public addPost(post: AddPost): Observable<any> {
-    return this.http.post('api/products/add', post);
+    return this.http.post('https://winsum-app.herokuapp.com/api/products/add', post);
   }
 
 }
